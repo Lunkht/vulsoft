@@ -1,172 +1,490 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
-  <title>Vulsoft</title>
-  <!-- Google Fonts pour une typographie moderne -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-   
-  </style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/main_style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/cjs/react-dom.production.min.js"
+		integrity="sha512-JNrK0svSdzmupRoUCGrnD5Im9ybaQ/dtwjbEE8top7nLk6qlV6jatbUinWJf1B+//gADpfBVm8nF1eyreAJX3w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
+	<title>efficent.com</title>
+	<style>
+        :root {
+            --bg-color: #1c1c1c;
+            --card-bg: #2a2a2a;
+            --text-color: #ffffff;
+            --text-secondary: #a1a1a1;
+            --accent-color: #3ecf8e;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Premier élément prenant 2 colonnes */
+        .card:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        /* Deuxième ligne, premier élément prenant 2 colonnes */
+        .card:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s;
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-color);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .storage-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .storage-item {
+            aspect-ratio: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card:nth-child(1),
+            .card:nth-child(4) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .storage-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
+
 <body>
-
-  <div class="fist-header">
-    <nav class="navBar" aria-label="Navigation principale">
-      <div class="logo"><img src="serval_logo.png" alt="Logo Vulsoft"></div>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#Teams">Teams</a></li>
-        <li><a href="#aboutUs">À propos</a></li>
-        <li><a href="#objectif">Objectifs</a></li>
-        <li><a href="#zone">Contacts</a></li>
-      </ul>
-      <div class="satart">Commence</div>
-      <div class="menu">MENU</div>
-    </nav>
-  </div>
-
-  <header class="header">
-    <div class="header-wrapper">
-      <div class="headBox">
-        <div class="welcomeText">
-          <h1>Bienvenue à</h1>
-          <h2>bord du possible.</h2>
+	<header>
+		<div class="navbar">
+			<div class="logo">
+				<a href="#Accueil"><img src="images/logo.svg" alt="logo"></a>
+			</div>
+			<ul class="link">
+				<li><a href="#activities">efficient</a></li>
+				<li><a href="#services">Services</a></li>
+				<li><a href="#teams">Equipe</a></li>
+				<li><a href="#partners">Nos partennaires</a></li>
+				<li><a href="#abouts">A propos</a></li>
+				<li><a href="#contact">Contacts</a></li>
+			</ul>
+			<a class="action_btn" href="#actions">S'inscrire</a>
+			
+			<div class="toggle_btn">
+				<i class="fa-solid fa-bars"></i>
+			</div>
+			<div class="dropdown_menu">
+				</ul>
+				<li><a href="#hero">efficient</a></li>
+				<li><a href="#service">Services</a></li>
+				<li><a href="#teams">Equipe</a></li>
+				<li><a href="#about">A propos de nous</a></li>
+				<li><a href="#contact">Contacts</a></li>
+				<li><a href="#" class="action_btn">Commencons</a></li>
+			</div>
+		</div>
+	</header>
+	
+	<section id="hero">
+		<div class="hero_text_wrap">
+			<img src="Images/icon_logo.svg" alt="">
+		</div>
+	</section>
+	<div class="grid-container">
+        <!-- 1. Base de données (2 colonnes) -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                </svg>
+                <h2 class="card-title">Base de données Postgres</h2>
+            </div>
+            <div class="card-content">
+                <p>Chaque projet est une base de données Postgres complète, la base de données relationnelle la plus fiable au monde.</p>
+            </div>
         </div>
-        <div class="headToolBox">
-          <button>Commencer</button>
-          <button>Commencer</button>
+
+        <!-- 2. Authentification -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <h2 class="card-title">Authentification</h2>
+            </div>
+            <div class="card-content">
+                <p>Ajoutez des inscriptions et des connexions d'utilisateurs en sécurisant vos données avec Row Level Security.</p>
+            </div>
         </div>
-      </div>
+
+        <!-- 3. Fonctions de bord -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <h2 class="card-title">Fonctions de bord</h2>
+            </div>
+            <div class="card-content">
+                <p>Écrivez facilement du code personnalisé sans déployer ni mettre à l'échelle des serveurs.</p>
+            </div>
+        </div>
+
+        <!-- 4. Stockage (2 colonnes) -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                </svg>
+                <h2 class="card-title">Stockage</h2>
+            </div>
+            <div class="card-content">
+                <p>Stockez, organisez et diffusez des fichiers volumineux, des vidéos aux images.</p>
+                <div class="storage-grid">
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                    <div class="storage-item"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. En temps réel -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38"/>
+                </svg>
+                <h2 class="card-title">En temps réel</h2>
+            </div>
+            <div class="card-content">
+                <p>Créez des expériences multijoueurs avec synchronisation des données en temps réel.</p>
+            </div>
+        </div>
+
+        <!-- 6. Vecteur -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4z"/>
+                </svg>
+                <h2 class="card-title">Vecteur</h2>
+            </div>
+            <div class="card-content">
+                <p>Intégrez vos modèles ML préférés pour stocker, indexer et rechercher des vecteurs intégrés.</p>
+            </div>
+        </div>
+
+        <!-- 7. API de données -->
+        <div class="card">
+            <div class="card-header">
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                </svg>
+                <h2 class="card-title">API de données</h2>
+            </div>
+            <div class="card-content">
+                <p>API Restful prêtes à l'emploi instantanément.</p>
+            </div>
+        </div>
     </div>
-  </header>
+	<!--activitee-->
+	<section id="activities">
+		<div class="activities-container">
+			<div class="activity">
+				<img src="images/logo.svg" alt="">
+				<div class="text_wrap">
+					<h1>Gardiennage Stactique</h1>
+					<p>Vous êtes à la recherche d’une agence qui propose un service de gardiennage statique ? Faites
+						appel à notre entreprise spécialisée dans le domaine ! Nous mettons à votre disposition des
+						agents professionnels pour la sécurisation de votre site ou bâtiment, quel que soit votre
+						secteur d’activités.</p>
 
-  <section id="objectif">
-    <div class="objectifContainer">
-      <div class="imageContainer">
-        <img src="dame1.jpg" alt="Image">
-      </div>
-      <div class="textContainer">
-        <h1>Nos Objectifs</h1>
-        <p>Apporter un appui et un accompagnement de bout en bout aux entreprises, quelle que soit leur taille et le secteur d’activité.</p>
-        <button id="inscription-btn">S'inscrire</button>
-      </div>
-    </div>
-  </section>
+				</div>
 
-  <section id="services">
-    <h1 class="servText">Nos <span style="color: rgb(157, 157, 157);">services</span></h1>
-    <div class="servicesLayout">
-      <div class="service_item1">
-        <div class="serviceTextCont"><h2>Développement</h2></div>
-      </div>
-      <div class="service_item2">
-        <div class="serviceTextCont"><h2>Fabrique</h2></div>
-      </div>
-      <div class="service_item3">
-        <div class="serviceTextCont"><h2>Conception</h2></div>
-      </div>
-    </div>
-  </section>
+			</div>
+			<div class="activity">
+				<img src="images/logo.svg" alt="">
+				<div class="text_wrap">
+					<h1>Intervation apres alarme</h1>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae voluptate perspiciatis
+						adipisci doloremque asperiores accusantium quo nostrum laborum, modi dignissimos ab iste quod
+						accusamus exercitationem commodi possimus nemo corrupti aspernatur.</p>
+				</div>
 
-  <section id="Teams">
-    <h2 class="teamTitle">Nos <span>teams</span></h2>
-    <div class="teamContainer">
-      <div class="team">
-        <div class="fond1"></div>
-        <div class="info">
-          <h2>Florantine</h2>
-          <h3>Directrice générale</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-        </div>
-      </div>
-      <div class="team">
-        <div class="fond2"></div>
-        <div class="info">
-          <h2>Pathé</h2>
-          <h3>Directeur financier</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-        </div>
-      </div>
-      <div class="team">
-        <div class="fond3"></div>
-        <div class="info">
-          <h2>Emy</h2>
-          <h3>Secrétaire</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-        </div>
-      </div>
-      <div class="team">
-        <div class="fond4"></div>
-        <div class="info">
-          <h2>Hakim</h2>
-          <h3>Responsable <br> Développement</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-        </div>
-      </div>
-    </div>
-  </section>
+			</div>
+			<div class="activity">
+				<img src="images/logo.svg" alt="">
+				<div class="text_wrap">
+					<h1>Inspecteur Magasin</h1>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae voluptate perspiciatis
+						adipisci doloremque asperiores accusantium quo nostrum laborum, modi dignissimos ab iste quod
+						accusamus exercitationem commodi possimus nemo corrupti aspernatur.</p>
+				</div>
 
-  <div class="our_technologie">
-    <div class="techContainer">
-      <div class="tech_item" style="background-image: url('bot4.jpg');background-position: center;">
-        <div>
-          <h1>App Making</h1>
-          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit sit nostrum consequuntur sed dolorum hic earum, saepe voluptatem libero, quibusdam molestiae ex enim. Unde aliquid magni voluptas expedita esse maxime!</h3>
-          <button>En savoir plus</button>
-        </div>
-      </div>
-      <div class="tech_item" style="background-image: url('bot1.jpg'); background-position: bottom;">
-        <div>
-          <h1>Software making</h1>
-          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit sit nostrum consequuntur sed dolorum hic earum, saepe voluptatem libero, quibusdam molestiae ex enim. Unde aliquid magni voluptas expedita esse maxime!</h3>
-          <button>En savoir plus</button>
-        </div>
-      </div>
-    </div>
-  </div>
+			</div>
+			<div class="activity">
+				<img src="images/logo.svg" alt="">
+				<div class="text_wrap">
+					<h1>Protection raprochee</h1>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae voluptate perspiciatis
+						adipisci doloremque asperiores accusantium quo nostrum laborum, modi dignissimos ab iste quod
+						accusamus exercitationem commodi possimus nemo corrupti aspernatur.</p>
+				</div>
 
-  <section id="aboutUs">
-    <h1>À propos de nous</h1>
-    <div class="aboutWrap">
-      <p>Nous sommes un groupe de jeunes passionnés et soucieux de la sécurité des biens et des personnes. Nous nous engageons dans le développement et la transformation numérique des institutions privées et publiques africaines. Nos solutions : développer et simplifier le numérique sur tout le continent.</p>
-    </div>
-  </section>
+			</div>
+			<div class="activity">
+				<img src="images/logo.svg" alt="">
+				<div class="text_wrap">
+					<h1>Surveillances urgent</h1>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae voluptate perspiciatis
+						adipisci doloremque asperiores accusantium quo nostrum laborum, modi dignissimos ab iste quod
+						accusamus exercitationem commodi possimus nemo corrupti aspernatur.</p>
 
-  <footer class="footer" id="zone">
-    <div class="foot-container">
-      <div class="footItem">
-        <div class="foot-contenu">
-          <h2>Siège</h2>
-          <p>Conakry Ratoma</p>
-          <p>16 - PB 3452 Conakry</p>
-          <p>Copyright 2023 / 2024</p>
-        </div>
-      </div>
-      <div class="footItem">
-        <div class="contenu">
-          <h2>Contacts</h2>
-          <p>contact@serval.com</p>
-          <p>commerces@serval.com</p>
-          <p>+224 657 57 48 38</p>
-        </div>
-      </div>
-      <div class="footItem">
-        <div class="contenu">
-          <h2>Zones</h2>
-          <p>Ceci est le contenu qui s'affiche.</p>
-          <p>Ceci est le contenu qui s'affiche.</p>
-          <p>Ceci est le contenu qui s'affiche.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+				</div>
 
+			</div>
+			<div class="activity">
+				<img src="images/logo.svg" alt="">
+				<div class="text_wrap">
+					<h1>Gardiennage evenemmentiel</h1>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae voluptate perspiciatis
+						adipisci doloremque asperiores accusantium quo nostrum laborum, modi dignissimos ab iste quod
+						accusamus exercitationem commodi possimus nemo corrupti aspernatur.</p>
+
+				</div>
+
+			</div>
+		</div>
+		
+	</section>	
+	
+	<!--Collaborateur-->
+
+	<section id="teams">
+		<h2 class="team_title">Projet pour l'avenir</h2>
+		<div class="teams-container">
+			<div class="team">
+				<img src="images/icon_logo.svg" alt="Team 1">
+				<h3>Responsable Clientels</h3>
+				<p>Description du Service 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="team">
+				<img src="images/icon_logo.svg" alt="Team 2">
+				<h3>Superviseur</h3>
+				<p>Description du Service 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="team">
+				<img src="images/icon_logo.svg" alt="Team 3">
+				<h3>Comptable</h3>
+				<p>Description du Service 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="team">
+				<img src="images/icon_logo.svg" alt="Team 4">
+				<h3>Secretaire</h3>
+				<p>Description du Service 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Section Contacts -->
+	<section id="contact">
+		<h2>Contactez-nous</h2>
+		<p>Nous sommes une entreprise dédiée à fournir des services de haute qualité. Notre équipe est composée de
+			professionnels expérimentés qui s'engagent à offrir le meilleur à nos clients. Lorem ipsum dolor sit
+			amet,
+			consectetur adipiscing elit.</p>
+		<form>
+			<label for="name">Nom :</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email :</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="message">Message :</label>
+			<textarea id="message" name="message" rows="4" required></textarea>
+
+			<button type="submit">Envoyer</button>
+		</form>
+	</section>
+
+
+	<section id="partners">
+		<h2>Nos Partennaires</h2>
+
+		<div class="partner-container">
+
+			<div class="partner">
+				<img src="images/logo.svg" alt="Team 1">
+			</div>
+			<div class="partner">
+				<img src="images/logo.svg" alt="Team 2">
+			</div>
+			<div class="partner">
+				<img src="images/logo.svg" alt="Team 3">
+			</div>
+			<div class="partner">
+				<img src="images/logo.svg" alt="Team 4">
+			</div>
+
+		</div>
+	</section>
+
+
+	<script src="script.js"></script>
+
+	<script>
+		const toggleBtn = document.querySelector('.toggle_btn'); // Sélecteur de classe
+		const toggleBtnIcon = document.querySelector('.toggle_btn i'); // Sélecteur de classe + élément i pour l'icône
+		const dropdownMenu = document.querySelector('.dropdown_menu'); // Sélecteur de classe
+
+		toggleBtn.onclick = function () {
+			dropdownMenu.classList.toggle('open');
+			const isOpen = dropdownMenu.classList.contains('open');
+
+			// Changer l'icône en fonction de l'état du menu
+			if (isOpen) {
+				toggleBtnIcon.classList.remove('fa-bars');
+				toggleBtnIcon.classList.add('fa-xmark');
+			} else {
+				toggleBtnIcon.classList.remove('fa-xmark');
+				toggleBtnIcon.classList.add('fa-bars');
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const container = document.querySelector('.activities-container');
+			const scrollLeftBtn = document.querySelector('.scroll-left');
+			const scrollRightBtn = document.querySelector('.scroll-right');
+
+			scrollLeftBtn.addEventListener('click', () => {
+				container.scrollBy({
+					left: -200, // Ajuste la valeur pour changer la distance de défilement
+					behavior: 'smooth'
+				});
+			});
+
+			scrollRightBtn.addEventListener('click', () => {
+				container.scrollBy({
+					left: 200, // Ajuste la valeur pour changer la distance de défilement
+					behavior: 'smooth'
+				});
+			});
+		});
+
+	</script>
+	<!--footer-->
+	<div class="footer" id="zone">
+		<div class="foot-container">
+			<div class="footItem">
+
+				<div class="foot-contenu">
+					<h2>Siège social</h2>
+					<p>Lambangni face-a-casino</p>
+					<p>16 - PB 3452 Conakry</p>
+				</div>
+			</div>
+			<div class="footItem">
+				<div class="contenu">
+					<h2>Contacts</h2>
+					<p>contac@serval.com</p>
+					<p>comemerces@serval.com</p>
+					<p>+224 657 57 48 38</p>
+				</div>
+			</div>
+		
+			<div class="foot-media-center">
+				<div class="media-content">
+					<img src="images/logo.svg" class="bottom-logo" alt="Team 4">
+				
+				</div>
+		
+			</div>
+		</div>
+	</div>
+	<div class="line" style="width:1000px; height: 0.2px; background-color: #a1a1a1; display: flex; align-items: center; justify-content: center;"></div>
+	<div class="Copyright">		
+		<p>@</p><p>é</p><espan>fficent.inc</span>
+	</div>
 </body>
+
 </html>
