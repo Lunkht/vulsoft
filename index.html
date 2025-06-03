@@ -1,224 +1,507 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="css/main.css">
-<link rel="shortcut icon" href="icon.png" type="image/x-icon">
-<title>Vulsoft</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <title>Vulsoft</title>
+  <!-- Google Fonts pour une typographie moderne -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #f7f8fa;
+      margin: 0;
+      color: #222;
+    }
+    .fist-header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navBar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.5rem 2rem;
+    }
+    .logo img {
+      height: 48px;
+    }
+    .navBar ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navBar ul li a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .navBar ul li a:hover {
+      color: #007bff;
+    }
+    .satart, .menu {
+      background: #007bff;
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 24px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 1rem;
+      transition: background 0.2s;
+    }
+    .satart:hover, .menu:hover {
+      background: #0056b3;
+    }
+    .header {
+      background: linear-gradient(120deg, #007bff 0%, #00c6ff 100%);
+      color: #fff;
+      padding: 4rem 0 2rem 0;
+      text-align: center;
+    }
+    .header-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .welcomeText h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+    }
+    .welcomeText h2 {
+      font-size: 2rem;
+      margin: 0.5rem 0 2rem 0;
+      font-weight: 400;
+    }
+    .headToolBox {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .headToolBox button {
+      background: #fff;
+      color: #007bff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .headToolBox button:hover {
+      background: #007bff;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+    #objectif {
+      background: #fff;
+      padding: 3rem 0;
+    }
+    .objectifContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .imageContainer img {
+      width: 220px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .textContainer h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #007bff;
+    }
+    .textContainer p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+    #inscription-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 1rem;
+    }
+    #inscription-btn:hover {
+      background: #0056b3;
+    }
+    .servText {
+      text-align: center;
+      font-size: 2rem;
+      margin: 3rem 0 2rem 0;
+      font-weight: 700;
+    }
+    .servicesLayout {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .service_item1, .service_item2, .service_item3 {
+      background: #f1f3f6;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      padding: 2rem 1.5rem;
+      min-width: 220px;
+      flex: 1 1 220px;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .service_item1:hover, .service_item2:hover, .service_item3:hover {
+      box-shadow: 0 6px 24px rgba(0,123,255,0.08);
+    }
+    .serviceTextCont h2 {
+      color: #007bff;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+    #Teams {
+      background: #f7f8fa;
+      padding: 3rem 0;
+    }
+    .teamTitle {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .teamTitle span {
+      color: #007bff;
+    }
+    .teamContainer {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .team {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 1.5rem;
+      min-width: 220px;
+      max-width: 260px;
+      flex: 1 1 220px;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .team:hover {
+      box-shadow: 0 6px 24px rgba(0,123,255,0.08);
+    }
+    .fond1, .fond2, .fond3, .fond4 {
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      background-size: cover;
+      background-position: center;
+    }
+    .fond1 { background: url('avatar1.png') #e3f0ff no-repeat center/cover; }
+    .fond2 { background: url('avatar2.png') #e3f0ff no-repeat center/cover; }
+    .fond3 { background: url('avatar3.png') #e3f0ff no-repeat center/cover; }
+    .fond4 { background: url('avatar4.png') #e3f0ff no-repeat center/cover; }
+    .info h2 {
+      margin: 0.5rem 0 0.2rem 0;
+      font-size: 1.2rem;
+      color: #007bff;
+    }
+    .info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+      color: #555;
+      font-weight: 400;
+    }
+    .info p {
+      color: #666;
+      font-size: 0.98rem;
+    }
+    .our_technologie {
+      background: #fff;
+      padding: 3rem 0;
+    }
+    .techContainer {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .tech_item {
+      background: #f1f3f6;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      min-width: 280px;
+      max-width: 400px;
+      flex: 1 1 280px;
+      padding: 2rem 1.5rem;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #222;
+      display: flex;
+      align-items: flex-end;
+      transition: box-shadow 0.2s;
+    }
+    .tech_item h1 {
+      color: #007bff;
+      margin-bottom: 0.5rem;
+    }
+    .tech_item button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    .tech_item button:hover {
+      background: #0056b3;
+    }
+    #aboutUs {
+      background: #f7f8fa;
+      padding: 3rem 0;
+    }
+    #aboutUs h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .aboutWrap {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+    }
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    .foot-container {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .footItem {
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 300px;
+      margin-bottom: 1rem;
+    }
+    .foot-contenu, .contenu {
+      padding: 0.5rem 0;
+    }
+    .foot-contenu h2, .contenu h2 {
+      color: #00c6ff;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .foot-contenu p, .contenu p {
+      margin: 0.2rem 0;
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+    @media (max-width: 900px) {
+      .navBar, .header-wrapper, .objectifContainer, .servicesLayout, .teamContainer, .techContainer, .foot-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .navBar ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .servicesLayout, .teamContainer, .techContainer, .foot-container {
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-
-<div class="fist-header">
-<div class="navBar">
-<div class="logo"><img src="serval_logo.png" alt=""></div>
-<ul>
-<li><a href="#">Accueil</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#team">Teams</a></li>
-<li><a href="#aboutUs">Aprropos</a></li>
-<li><a href="#objectif">Objetifs</a></li>
-<li><a href="#zone">Contacts</a></li>
-
-</ul>
-<div class="satart">Commence</div>
-<div class="menu">MENU</div>
-</div>
-</div>
-<header class="header">
-<div class="header-wrapper">
-<div class="headBox">
-  <div class="welcomeText">
-    <h1>Bienvenue a</h1>
-    <h2>bord du possible.</h2>
+  <div class="fist-header">
+    <nav class="navBar" aria-label="Navigation principale">
+      <div class="logo"><img src="serval_logo.png" alt="Logo Vulsoft"></div>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#Teams">Teams</a></li>
+        <li><a href="#aboutUs">À propos</a></li>
+        <li><a href="#objectif">Objectifs</a></li>
+        <li><a href="#zone">Contacts</a></li>
+      </ul>
+      <div class="satart">Commence</div>
+      <div class="menu">MENU</div>
+    </nav>
   </div>
 
-
-<div class="headToolBox">
-<button>Commencer</button>
-<button>Commencer</button>
-</div>
-
-</div>
-</div>
-</header>
-
-<div id="objectif">
-  <div class="objectifContainer">
-    <div class="imageContainer">
-      <img src="dame1.jpg" alt="Image">
-    </div>
-
-    <div class="textContainer">
-      <h1>Nos Objetifs</h1>
-      <p>Apporter un appui et un accompagnement de 
-        bout en bout aux entreprises
-         quelque soit leur taille et le secteur d’activité.</p>
-    </div>
-    <button id="inscription-btn">S'inscrire</button>
-  </div>
-  </div>
-  
-<!-- our project section -->
-<section id="services">
-<h1 class="servText">Nos <span style="color: rgb(157, 157, 157);">services</span> </h1>
-<div class="servicesLayout">
-<div class="service_item1">
- 
-<div class="serviceTextCont"> <h2>Développement</h2></div>
-</div>
-
-<div  class="service_item2" >
- 
-<div class="serviceTextCont"> <h2>Fabrique</h2></div>
-
-</div>
-
-<div  class="service_item3" >
- 
-<div class="serviceTextCont"> <h2>Conception</h2></div>
-
-</div>
-
-<div style="clear: both;"></div>
-</div>
-</section>
-<!-- about us section -->
-
-<!-- our team section-->
-<div id="Teams">
-  <h2 class="teamTitle">Nos <span>teams</span></h2>
-  <div class="teamContainer">
-  
-    <div class="team">
-      <div class="fond1"></div>
-    <div class="info">
-    <h2>Florantine</h2>
-    <h3>Directrice générale</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quo consectetur iste minima? Ullam...</p>
-    </div>
-    </div>
-    
-    <div  class="team" >
-      <div class="fond2"></div>
-    <div class="info">
-    <h2>Pathé</h2>
-    <h3>Directeur finacier</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-    </div>
-    
-    </div>
-    
-    <div class="team">
-      <div class="fond3"></div>
-    <div class="info"> 
-    <h2>Emy</h2>
-    <h3>Secrétait</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-    </div>
-    </div>
-    
-    <div class="team">
-      <div class="fond4"></div>
-    <div class="info"> 
-    <h2>Hakim</h2>
-    <h3>Responssable <br> Développement</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
-    </div>
-    </div>
-    </div>
-  </div>
-<!-- nos partenaire-->
-<!--
-<section class="partners" id="partners">
-  <div class="container">
-    <h2>Nos partenaires</h2>
-    <div class="partner-logos">
-      <img src="tronix_logo-18.png" alt="Logo Partenaire 1">
-      <img src="trx-15.png" alt="Logo Partenaire 2">
-      <img src="OIP.jpg" alt="Logo Partenaire 3">
-      <img src="CIJACP-03.jpg" alt="Logo Partenaire 3">
-       Ajoutez d'autres logos de partenaires ici 
-    </div>
-  </div>
-</section>
--->
-
-<div class="our_technologie">
-    <div class="techContainer">
-        <div class="tech_item" style="background-image: url('bot4.jpg');background-position: center;">
-            <div>
-                <h1>App Making</h1>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Suscipit sit nostrum consequuntur sed dolorum hic earum, saepe voluptatem libero, 
-                   quibusdam molestiae ex enim. Unde aliquid magni voluptas expedita esse maxime!</h3>
-                   <button>En savoir plus</button>
-            </div>
-           
+  <header class="header">
+    <div class="header-wrapper">
+      <div class="headBox">
+        <div class="welcomeText">
+          <h1>Bienvenue à</h1>
+          <h2>bord du possible.</h2>
         </div>
-        <div class="tech_item" style="background-image: url('bot1.jpg'); background-position: bottom;">
-            <div>
-                <h1> Software making</h1>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Suscipit sit nostrum consequuntur sed dolorum hic earum, saepe voluptatem libero, 
-                 quibusdam molestiae ex enim. Unde aliquid magni voluptas expedita esse maxime!</h3>
-                 <button>En savoir plus</button>
-             </div>
-            </div>
-          
+        <div class="headToolBox">
+          <button>Commencer</button>
+          <button>Commencer</button>
+        </div>
+      </div>
     </div>
-</div>
+  </header>
 
-<section id="aboutUs">
-  <h1>Apropos de nous</h1>
-  <div class="aboutWrap">
-  <p>Nous sommes des groupes de jeunes passionnés et très sourcier de la
-     sécurité des biens et des personnes, nous nous engageons dans le
-      développement et de la transformation numériques des institutions
-     privés et publics africaines, nos solutions : Développer, Simplifié le numerique sur tout le continant.</p>
-  </div>
+  <section id="objectif">
+    <div class="objectifContainer">
+      <div class="imageContainer">
+        <img src="dame1.jpg" alt="Image">
+      </div>
+      <div class="textContainer">
+        <h1>Nos Objectifs</h1>
+        <p>Apporter un appui et un accompagnement de bout en bout aux entreprises, quelle que soit leur taille et le secteur d’activité.</p>
+        <button id="inscription-btn">S'inscrire</button>
+      </div>
+    </div>
   </section>
 
-<!--footer-->
-<div class="footer" id="zone">
-  <div class="foot-container">
-    <div class="footItem">
-      <div class="foot-contenu">
-        <h2>Siège</h2>
-        <p>Conakry Ratoma</p>
-        <p>16 - PB 3452 Conakry</p>
-        <p>Copyright 2023 / 2024</p>
-       
+  <section id="services">
+    <h1 class="servText">Nos <span style="color: rgb(157, 157, 157);">services</span></h1>
+    <div class="servicesLayout">
+      <div class="service_item1">
+        <div class="serviceTextCont"><h2>Développement</h2></div>
+      </div>
+      <div class="service_item2">
+        <div class="serviceTextCont"><h2>Fabrique</h2></div>
+      </div>
+      <div class="service_item3">
+        <div class="serviceTextCont"><h2>Conception</h2></div>
       </div>
     </div>
-    <div class="footItem">
-      <div class="contenu">
-        <h2>Contacts</h2>
-        <p>contac@serval.com</p>
-        <p>comemerces@serval.com</p>
-        <p>+224 657 57 48 38</p>
+  </section>
 
+  <section id="Teams">
+    <h2 class="teamTitle">Nos <span>teams</span></h2>
+    <div class="teamContainer">
+      <div class="team">
+        <div class="fond1"></div>
+        <div class="info">
+          <h2>Florantine</h2>
+          <h3>Directrice générale</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
+        </div>
+      </div>
+      <div class="team">
+        <div class="fond2"></div>
+        <div class="info">
+          <h2>Pathé</h2>
+          <h3>Directeur financier</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
+        </div>
+      </div>
+      <div class="team">
+        <div class="fond3"></div>
+        <div class="info">
+          <h2>Emy</h2>
+          <h3>Secrétaire</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
+        </div>
+      </div>
+      <div class="team">
+        <div class="fond4"></div>
+        <div class="info">
+          <h2>Hakim</h2>
+          <h3>Responsable <br> Développement</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consectetur iste minima? Ullam...</p>
+        </div>
       </div>
     </div>
-    <div class="footItem">
-      <div class="contenu">
-        <h2>Zones</h2>
-        <p>Ceci est le contenu qui s'affiche.</p>
-       
-        <p>Ceci est le contenu qui s'affiche.</p>
-       
-        <p>Ceci est le contenu qui s'affiche.</p>
+  </section>
+
+  <div class="our_technologie">
+    <div class="techContainer">
+      <div class="tech_item" style="background-image: url('bot4.jpg');background-position: center;">
+        <div>
+          <h1>App Making</h1>
+          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit sit nostrum consequuntur sed dolorum hic earum, saepe voluptatem libero, quibusdam molestiae ex enim. Unde aliquid magni voluptas expedita esse maxime!</h3>
+          <button>En savoir plus</button>
+        </div>
+      </div>
+      <div class="tech_item" style="background-image: url('bot1.jpg'); background-position: bottom;">
+        <div>
+          <h1>Software making</h1>
+          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit sit nostrum consequuntur sed dolorum hic earum, saepe voluptatem libero, quibusdam molestiae ex enim. Unde aliquid magni voluptas expedita esse maxime!</h3>
+          <button>En savoir plus</button>
+        </div>
       </div>
     </div>
-    
   </div>
 
- 
-</div>
+  <section id="aboutUs">
+    <h1>À propos de nous</h1>
+    <div class="aboutWrap">
+      <p>Nous sommes un groupe de jeunes passionnés et soucieux de la sécurité des biens et des personnes. Nous nous engageons dans le développement et la transformation numérique des institutions privées et publiques africaines. Nos solutions : développer et simplifier le numérique sur tout le continent.</p>
+    </div>
+  </section>
+
+  <footer class="footer" id="zone">
+    <div class="foot-container">
+      <div class="footItem">
+        <div class="foot-contenu">
+          <h2>Siège</h2>
+          <p>Conakry Ratoma</p>
+          <p>16 - PB 3452 Conakry</p>
+          <p>Copyright 2023 / 2024</p>
+        </div>
+      </div>
+      <div class="footItem">
+        <div class="contenu">
+          <h2>Contacts</h2>
+          <p>contact@serval.com</p>
+          <p>commerces@serval.com</p>
+          <p>+224 657 57 48 38</p>
+        </div>
+      </div>
+      <div class="footItem">
+        <div class="contenu">
+          <h2>Zones</h2>
+          <p>Ceci est le contenu qui s'affiche.</p>
+          <p>Ceci est le contenu qui s'affiche.</p>
+          <p>Ceci est le contenu qui s'affiche.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
