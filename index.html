@@ -13,117 +13,6 @@
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
 	<title>Vulsoft</title>
-	<style>
-        :root {
-            --bg-color: #1c1c1c;
-            --card-bg: #2a2a2a;
-            --text-color: #ffffff;
-            --text-secondary: #a1a1a1;
-            --accent-color: #3ecf8e;
-        }
-
-        body {
-            margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: system-ui, -apple-system, sans-serif;
-            min-height: 100vh;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Premier élément prenant 2 colonnes */
-        .card:nth-child(1) {
-            grid-column: span 2;
-        }
-
-        /* Deuxième ligne, premier élément prenant 2 colonnes */
-        .card:nth-child(4) {
-            grid-column: span 2;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px;
-            transition: transform 0.2s;
-            height: 100%;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .card-icon {
-            width: 24px;
-            height: 24px;
-            fill: var(--accent-color);
-        }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .card-content {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-
-        .storage-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .storage-item {
-            aspect-ratio: 1;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-        }
-
-        @media (max-width: 1200px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .card:nth-child(1),
-            .card:nth-child(4) {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .storage-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -410,48 +299,9 @@
 	</section>
 
 
-	<script src="script.js"></script>
+	<script src="js/main.js"></script>
 
-	<script>
-		const toggleBtn = document.querySelector('.toggle_btn'); // Sélecteur de classe
-		const toggleBtnIcon = document.querySelector('.toggle_btn i'); // Sélecteur de classe + élément i pour l'icône
-		const dropdownMenu = document.querySelector('.dropdown_menu'); // Sélecteur de classe
-
-		toggleBtn.onclick = function () {
-			dropdownMenu.classList.toggle('open');
-			const isOpen = dropdownMenu.classList.contains('open');
-
-			// Changer l'icône en fonction de l'état du menu
-			if (isOpen) {
-				toggleBtnIcon.classList.remove('fa-bars');
-				toggleBtnIcon.classList.add('fa-xmark');
-			} else {
-				toggleBtnIcon.classList.remove('fa-xmark');
-				toggleBtnIcon.classList.add('fa-bars');
-			}
-		}
-
-		document.addEventListener('DOMContentLoaded', () => {
-			const container = document.querySelector('.activities-container');
-			const scrollLeftBtn = document.querySelector('.scroll-left');
-			const scrollRightBtn = document.querySelector('.scroll-right');
-
-			scrollLeftBtn.addEventListener('click', () => {
-				container.scrollBy({
-					left: -200, // Ajuste la valeur pour changer la distance de défilement
-					behavior: 'smooth'
-				});
-			});
-
-			scrollRightBtn.addEventListener('click', () => {
-				container.scrollBy({
-					left: 200, // Ajuste la valeur pour changer la distance de défilement
-					behavior: 'smooth'
-				});
-			});
-		});
-
-	</script>
+	
 	<!--footer-->
 	<div class="footer" id="zone">
 		<div class="foot-container">
@@ -483,7 +333,7 @@
 	</div>
 	<div class="line" style="width:1000px; height: 0.2px; background-color: #a1a1a1; display: flex; align-items: center; justify-content: center;"></div>
 	<div class="Copyright">		
-		<p>@</p><p>é</p><espan>fficent.inc</span>
+		<p>@</p>Vulsoft.inc</span>
 	</div>
 </body>
 

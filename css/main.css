@@ -1,23 +1,34 @@
- body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #1c1c1d;
-      margin: 0;
-      color: #fff;
-    }
-    .fist-header {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+     body {
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+
+              :root {
+            --bg-color: #1c1c1c;
+            --card-bg: #2a2a2a;
+            --text-color: #ffffff;
+            --text-secondary: #a1a1a1;
+            --accent-color: #3ecf8e;
+        }
+
+    .header {
+      display: flex;
       position: sticky;
       top: 0;
       z-index: 100;
     }
+
     .navBar {
-      display: flex;
       align-items: center;
       justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0.5rem 2rem;
     }
+
     .logo img {
       height: 48px;
     }
@@ -28,17 +39,20 @@
       margin: 0;
       padding: 0;
     }
+
     .navBar ul li a {
       text-decoration: none;
-      color: #222;
+      color: #fff;
       font-weight: 500;
       transition: color 0.2s;
     }
+    
     .navBar ul li a:hover {
-      color: #007bff;
+      color: #ffffff;
+
     }
     .satart, .menu {
-      background: #007bff;
+      background: var(--accent-color);
       color: #fff;
       padding: 0.5rem 1.2rem;
       border-radius: 24px;
@@ -50,11 +64,7 @@
     .satart:hover, .menu:hover {
       background: #0056b3;
     }
-    .header {
-      color: #fff;
-      padding: 4rem 0 2rem 0;
-      text-align: center;
-    }
+ 
     .header-wrapper {
       max-width: 900px;
       margin: 0 auto;
@@ -90,9 +100,11 @@
       color: #fff;
       border: 1px solid #fff;
     }
+
     #objectif {
       padding: 3rem 0;
     }
+
     .objectifContainer {
       display: flex;
       align-items: center;
@@ -102,21 +114,25 @@
       margin: 0 auto;
       flex-wrap: wrap;
     }
+
     .imageContainer img {
       width: 220px;
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     }
+    
     .textContainer h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
       color: #007bff;
     }
+
     .textContainer p {
       font-size: 1.1rem;
       color: #444;
       margin-bottom: 1.5rem;
     }
+
     #inscription-btn {
       background: #007bff;
       color: #fff;
@@ -324,3 +340,96 @@
         gap: 1rem;
       }
     }
+    .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Premier élément prenant 2 colonnes */
+        .card:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        /* Deuxième ligne, premier élément prenant 2 colonnes */
+        .card:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s;
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-color);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .storage-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .storage-item {
+            aspect-ratio: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card:nth-child(1),
+            .card:nth-child(4) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .storage-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
