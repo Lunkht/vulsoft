@@ -538,3 +538,50 @@ form button:hover {
       text-align: center;
   }
 }
+
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  z-index: 2000;
+  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-menu.open {
+  right: 0;
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.sidebar-content {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+.close-sidebar {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.sidebar-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s;
+}
+.sidebar-btn:hover {
+  color: #3ecf8e;
+}

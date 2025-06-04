@@ -29,7 +29,8 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a class="satart" href="#contact">S'inscrire</a>
-            
+            <button class="sidebar-btn" id="searchSidebarBtn" title="Moteur de recherche"><i class="fa fa-search"></i></button>
+            <button class="sidebar-btn" id="assistantSidebarBtn" title="Assistant virtuel"><i class="fa fa-robot"></i></button>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -42,6 +43,26 @@
             </div>
         </div>
     </header>
+    <aside id="searchSidebar" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Moteur de recherche</h3>
+            <button class="close-sidebar" data-target="searchSidebar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <input type="text" placeholder="Rechercher...">
+            <button>Rechercher</button>
+        </div>
+    </aside>
+    <aside id="assistantSidebar" class="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Assistant virtuel</h3>
+            <button class="close-sidebar" data-target="assistantSidebar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <p>Comment puis-je vous aider ?</p>
+            <!-- Zone pour l'assistant virtuel -->
+        </div>
+    </aside>
     
     <section id="hero">
         <div class="header-wrapper">

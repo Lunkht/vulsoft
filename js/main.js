@@ -34,4 +34,23 @@ const toggleBtn = document.querySelector('.toggle_btn'); // Sélecteur de classe
 					behavior: 'smooth'
 				});
 			});
+			// Sidebar logic for search and assistant
+			const searchSidebarBtn = document.getElementById('searchSidebarBtn');
+			const assistantSidebarBtn = document.getElementById('assistantSidebarBtn');
+			const searchSidebar = document.getElementById('searchSidebar');
+			const assistantSidebar = document.getElementById('assistantSidebar');
+			const closeSidebarBtns = document.querySelectorAll('.close-sidebar');
+			
+			searchSidebarBtn.addEventListener('click', () => {
+			    searchSidebar.classList.add('open');
+			});
+			assistantSidebarBtn.addEventListener('click', () => {
+			    assistantSidebar.classList.add('open');
+			});
+			closeSidebarBtns.forEach(btn => {
+			    btn.addEventListener('click', (e) => {
+			        const target = e.target.getAttribute('data-target');
+			        document.getElementById(target).classList.remove('open');
+			    });
+			});
 		});
