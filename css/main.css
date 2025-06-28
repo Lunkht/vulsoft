@@ -688,3 +688,42 @@ body {
     align-items: center;
   }
 }
+
+/* Boutons universels blanc/noir */
+button, .cta-button, .auth-btn, .auth-actions button, .sidebar-toggle, .nav-actions a, .auth-tabs button {
+  background: #fff !important;
+  color: #111 !important;
+  border: 2px solid #fff !important;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+button:hover, .cta-button:hover, .auth-btn:hover, .auth-actions button:hover, .sidebar-toggle:hover, .nav-actions a:hover, .auth-tabs button:hover {
+  background: #111 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+.auth-tabs button.active {
+  background: #111 !important;
+  color: #fff !important;
+  border-bottom: 2px solid #fff !important;
+}
+
+.auth-actions {
+  gap: 1rem;
+}
+
+/* Ajustement pour éviter conflit sur .sidebar-toggle */
+.sidebar-toggle {
+  border-radius: 12px;
+  font-size: 1.2rem;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
