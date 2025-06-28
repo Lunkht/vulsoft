@@ -70,4 +70,35 @@ loginForm.onsubmit = async (e) => {
         errorDiv.style.color = '#ff4d4f';
         errorDiv.textContent = err.message;
     }
-}; 
+};
+
+// Switch Sign in <-> Sign up
+const authTitle = document.getElementById('auth-title');
+const authBottom = document.getElementById('auth-bottom');
+const signupLink = document.getElementById('signup-link');
+
+let isSignIn = true;
+
+function showSignIn() {
+    loginForm.style.display = '';
+    registerForm.style.display = 'none';
+    authTitle.textContent = 'Sign in';
+    authBottom.innerHTML = `Don't have an account? <a id="signup-link">Sign up</a>`;
+    isSignIn = true;
+    attachSwitchLink();
+}
+function showSignUp() {
+    loginForm.style.display = 'none';
+    registerForm.style.display = '';
+    authTitle.textContent = 'Sign up';
+    authBottom.innerHTML = `Already have an account? <a id="signup-link">Sign in</a>`;
+    isSignIn = false;
+    attachSwitchLink();
+}
+function attachSwitchLink() {
+    document.getElementById('signup-link').onclick = (e) => {
+        e.preventDefault();
+        if (isSignIn) showSignUp(); else showSignIn();
+    };
+}
+attachSwitchLink(); 
