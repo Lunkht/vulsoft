@@ -298,79 +298,70 @@ body {
 .floating-element:nth-child(4) { top: 80%; left: 70%; animation-delay: 3s; }
 .floating-element:nth-child(5) { top: 30%; left: 60%; animation-delay: 4s; }
 
-/* Trust Section */
+/* Trust Section améliorée */
 .trust-section {
-    padding: 2rem 0.5rem;
-    background: none;
-    border: none;
+  padding: 2.5rem 0 2rem 0;
+  background: none;
 }
-
 .trust-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0.5rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
-
-.trust-title h2 {
+.trust-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+.trust-subtitle {
+  color: #888;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.trust-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.2rem;
+  align-items: center;
+  justify-items: center;
+}
+.trust-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 100px;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+.trust-logo span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  opacity: 0.85;
+}
+@media (max-width: 600px) {
+  .trust-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+  .trust-title {
     font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-    background: none;
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
-}
-
-.trust-title p {
-    color: #888888;
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
-}
-
-.trust-logos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 0.5rem;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0.2rem 0;
-}
-
-.trust-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2rem;
-    background: none;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-    transition: none;
-    min-height: 40px;
-}
-.trust-logos {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.4rem;
-}
-
-.trust-logo {
-  padding: 1rem;
-}
-
-.logo-placeholder {
-  font-size: 1rem;
-}
-.logo-placeholder {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #cccccc;
-    background: none;
-    padding: 0;
-    border: none;
-    box-shadow: none;
+  }
+  .trust-logo {
+    font-size: 0.98rem;
+    min-width: 70px;
+    min-height: 36px;
+  }
 }
 
 /* Features Section */
