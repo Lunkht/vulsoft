@@ -441,7 +441,6 @@ body {
 /* Testimonials */
 .testimonials {
   padding: 8rem 2rem;
-  background: rgba(255, 255, 255, 0.02);
 }
 
 .testimonials-container {
@@ -503,7 +502,6 @@ body {
 .footer {
   background: #00000080;
   padding: 4rem 2rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
@@ -598,7 +596,6 @@ body {
 .footer-bottom {
   text-align: center;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
   color: #888888;
   font-size: 0.95rem;
 }
