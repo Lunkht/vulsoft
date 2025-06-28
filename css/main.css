@@ -301,70 +301,66 @@ body {
 
 /* Trust Section */
 .trust-section {
-    padding: 4rem 2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 0.5rem;
+    background: none;
+    border: none;
 }
 
 .trust-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
+    padding: 0.5rem 0;
 }
 
 .trust-title h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(45deg, #ffffff, #cccccc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    margin-bottom: 0.2rem;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
 }
 
 .trust-title p {
     color: #888888;
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .trust-logos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.5rem;
     align-items: center;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
+    padding: 0.2rem 0;
 }
 
 .trust-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.trust-logo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-    border-color: rgba(99, 102, 241, 0.3);
+    padding: 0.2rem;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    transition: none;
+    min-height: 40px;
 }
 
 .logo-placeholder {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     color: #cccccc;
-    transition: color 0.3s ease;
-}
-
-.trust-logo:hover .logo-placeholder {
-    color: #6366f1;
+    background: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
 }
 
 /* Features Section */
